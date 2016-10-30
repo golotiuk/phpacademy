@@ -1,0 +1,36 @@
+div {
+	margin: 0 auto;
+	width: 250px;
+}
+h1 {
+	text-align: center;
+	width: 250px;
+	margin: 0 auto;
+	font-family: arial;
+	text-decoration: underline;
+}
+@font-face {
+	font-family: Roboto-light;
+	src:url(fonts/3962.ttf);
+}
+@font-face {
+	font-family: Roboto-reqular;
+	src:url(fonts/3966.ttf);
+}
+@font-face {
+	font-family:my;
+	src:url(fonts/2221.ttf);
+}
+.roboto-light {
+	font-family: Roboto-light;	
+}
+.roboto-reqular {
+	font-family: roboto-reqular;
+}
+.my {
+	font-family: my;
+}
+p {
+	font-size: 20px;
+	margin: 0;
+}
