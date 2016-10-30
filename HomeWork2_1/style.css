@@ -1,0 +1,44 @@
+body {
+	background: #555;
+}
+
+.centre {
+	width: 650px;
+	margin: auto;
+	background: #fff;
+	padding: 20px 80px;
+}
+.mail {
+	font-weight: bold ;
+	font-size: 18pt;
+	text-align: center;
+	font-family: calibri;
+}
+a {
+	padding: 0 35px;
+	text-decoration: none;
+	color: black;
+}
+p, ol {
+	font-family: "Segoe UI";
+}
+h1 {
+	text-transform: uppercase;
+	text-align: center;
+}
+.poem {
+	font-family: calibri;
+	font-style: italic;
+}
+
+.ferma {
+	font-size: 20px;
+	text-indent: 45px;
+}
+
+.ferma2 {
+	text-indent: 30px;
+}
+.C {
+	text-transform: capitalize;
+}
