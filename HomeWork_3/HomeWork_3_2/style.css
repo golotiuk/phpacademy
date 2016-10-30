@@ -1,0 +1,36 @@
+.main{
+	margin: 50px 100px;
+	width: 800px;
+	height: 500px;
+	float: right;
+	background: lime;
+	border: 2px solid black;
+	border-radius: 50px;
+}
+.small_left {
+	width: 150px;
+	height: 150px;
+	float: left;
+	margin: 5px 0;
+	background: blue;
+	border: 2px solid black;
+	border-radius: 50px;
+}
+.big_right {
+	width: 500px;
+	height: 300px;
+	float: right;
+	margin: 100px 0; 
+	background: red;
+	border: 2px solid black;
+	border-radius: 50px;
+}
+.small {
+	width: 100px;
+	height: 100px;
+	margin: 75px 100px; 
+	background: yellow;
+	border: 2px solid black;
+	 
+
+}
