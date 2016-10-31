@@ -1,0 +1,22 @@
+body {
+	margin: 0 10%;
+	background-image: url(asanoha-400px.png);
+}
+.ol {
+	width: 40%;
+	float: left;
+	text-align: justify;
+}
+.ul {
+	width: 40%;
+	margin: 200px 0 0;
+	float: right;
+	text-align: justify;
+}
+h1 {
+	text-align: center;
+}
+li {
+	font-size: 18px;
+	font-style: italic;
+}
