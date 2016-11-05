@@ -1,31 +1,26 @@
 .main {
-	// width: 600px;
 	background-color: #eee;
 	text-align: center;
 	margin: auto;
+	font-family: arial;
+	font-size: 22px;
 }
 .header, .footer {
-	background-color: #999;
+	background-color: #ccc;
 	line-height: 100px;
 }
-// h1, h2 {
-// 	margin: 0;
-// }
+h1, h2 {
+	margin: 0;
+}
 .container {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
 	flex-wrap: wrap;
-	// align-content: space-around;
-	// align-items: stretch;
-	// padding: 0;
+	padding: 15px;
   margin: 20px auto;
-  background-color: blue;
+  background-color: #108;
 }
 
 .element {
-	background-color: #fff;
-	line-height: 100px;	
-	// max-width: 400px;
-	// min-width: 350px;
 }
