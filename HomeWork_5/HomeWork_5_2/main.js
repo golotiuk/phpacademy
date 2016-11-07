@@ -1,6 +1,5 @@
 var years;
-years=+prompt('Введите ваш возраст');
-// yearNum=typeof(years);
+years=prompt('Введите ваш возраст');
 	console.log(typeof(years));
 if (isNaN(years)) {
 		document.write('Не верное значение, перегрузите страницу для следующей попытки');
