@@ -4,28 +4,28 @@ var a = +prompt('Введите первое число'),
 	d;
 switch (c) {
 	case '+': {
-			d = a + b;
-			document.write(a + " + " + b + " = " + d);
-			break;
-			}
+        d = a + b;
+        document.write(a + " + " + b + " = " + d);
+        break;
+    }
 	case '-': {
-			d = a - b;
-			document.write(a + " - " + b + " = " + d);
-			break;
-			}
+        d = a - b;
+        document.write(a + " - " + b + " = " + d);
+        break;
+    }
 	case '*': {
-			d = a * b;
-			document.write( a + " * " + b + " = " + d);
-			break;
-			}
+        d = a * b;
+        document.write( a + " * " + b + " = " + d);
+        break;
+    }
 	case '/': {
-			d = a / b;
-			document.write( a + " / " + b + " = " + d);
-			break;
-			}
+        d = a / b;
+        document.write( a + " / " + b + " = " + d);
+        break;
+    }
 	case '%': {
-			d = a % b;
-			document.write( a + " % " + b + " = " + d);
-			break;
-			}
+        d = a % b;
+        document.write( a + " % " + b + " = " + d);
+        break;
+    }
 }
