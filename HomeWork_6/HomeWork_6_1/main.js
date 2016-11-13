@@ -5,15 +5,16 @@ var person = {
     age: ''
 };
 function ask() {
-    person.name = prompt("Введите свое имя:");
-    person.sname = prompt("Введите свою фамилию:");
-    person.age = +prompt("Введите свой возраст:");
+    do {
+        person = {};
+        person.name = prompt("Введите свое имя:");
+        person.sname = prompt("Введите свою фамилию:");
+        person.age = +prompt("Введите свой возраст:");
+        a.push(person);
+        repeater = confirm("Пройти заполнение еще раз?");
+    } while (repeater);
 }
-do {
-    ask();
-    a.push(person);
-    repeater = confirm("Пройти заполнение еще раз?");
-} while (repeater);
+ask();
 console.log(a);
 for (var i = 0; i < a.length; i++) {
     for(field in a[i]) {
