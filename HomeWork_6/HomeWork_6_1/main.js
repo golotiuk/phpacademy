@@ -1,25 +1,23 @@
 var a = [];
-var person = {
-    name: '',
-    sname: '',
-    age: ''
-};
+var person = {};
 function ask() {
     do {
-        person = {};
-        person.name = prompt("Введите свое имя:");
-        person.sname = prompt("Введите свою фамилию:");
-        person.age = +prompt("Введите свой возраст:");
+        person = {
+            name: prompt("Введите свое имя:"),
+            sname: prompt("Введите свою фмилию:"),
+            age: +prompt("Введите свой возраст:")
+        };
         a.push(person);
         repeater = confirm("Пройти заполнение еще раз?");
     } while (repeater);
 }
-ask();
-console.log(a);
-for (var i = 0; i < a.length; i++) {
-    for(field in a[i]) {
-        console.log(a[i][field]);
-        document.write(a[i][field]+ '<br>');
+function say() {
+    for (var i = 0; i < a.length; i++) {
+        for (field in a[i]) {
+            document.write(a[i][field] + '<br>');
+        }
+        document.write('<hr>')
     }
-    document.write('<hr>')
 }
+ask();
+say();
