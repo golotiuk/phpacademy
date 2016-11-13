@@ -14,7 +14,7 @@ function ask() {
 function say() {
     for (var i = 0; i < a.length; i++) {
         for (field in a[i]) {
-            document.write(a[i][field] + '<br>');
+            document.write(field + ': ' + a[i][field] + '<br>');
         }
         document.write('<hr>')
     }
