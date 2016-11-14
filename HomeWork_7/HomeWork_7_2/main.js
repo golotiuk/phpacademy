@@ -1,13 +1,14 @@
 var a = [];
 var person = {};
 function lg() {
-    var language = [];
-    var lg;
+    var lang_arr = [];
+    var languages;
     do {
-        lg = prompt('Введите язык програмирования');
-        language.push(lg);
+        languages = prompt('Введите язык програмирования');
+        lang_arr.push(languages);
         repeater = confirm("Добавить еще язык?");
     } while(repeater);
+    return lang_arr;
 }
 function ask() {
     do {
@@ -24,9 +25,12 @@ function ask() {
 function say() {
     for (var i = 0; i < a.length; i++) {
         for (field in a[i]) {
+            if (typeof a[i][field] == 'object')
+                document.write(field + ': ' + a[i][field].join(',  ') + '<br>');
+            else
             document.write(field + ': ' + a[i][field] + '<br>');
         }
-        document.write('<hr>')
+        document.write('<hr>');
     }
 }
 ask();
