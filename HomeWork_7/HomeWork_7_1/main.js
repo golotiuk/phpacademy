@@ -1,19 +1,19 @@
 var a = +prompt('Введите первое число'),
     b = +prompt('Введите второе число'),
     c = prompt('Ведите оператор');
-var add = function (a, b) {
+function add(a, b) {
     return a + b;
 };
-var sub = function (a, b) {
+function sub(a, b) {
     return a - b;
 };
-var div = function (a, b) {
+function div(a, b) {
     return a / b;
 };
-var mult = function (a, b) {
+function mult(a, b) {
     return a * b;
 };
-var ost = function (a, b) {
+function ost(a, b) {
     return a % b;
 };
 function show(cb, a, b) {
@@ -29,12 +29,12 @@ switch (c) {
         show(sub, a, b);
         break;
     }
-    case '*': {
-        show(mult, a, b);
-        break;
-    }
     case '/': {
         show(div, a, b);
+        break;
+    }
+    case '*': {
+        show(mult, a, b);
         break;
     }
     case '%': {
