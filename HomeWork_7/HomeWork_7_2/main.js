@@ -2,10 +2,10 @@ var a = [];
 var person = {};
 function lg() {
     var lang_arr = [];
-    var languages;
+    var language;
     do {
-        languages = prompt('Введите язык програмирования');
-        lang_arr.push(languages);
+        language = prompt('Введите язык програмирования');
+        lang_arr.push(language);
         repeater = confirm("Добавить еще язык?");
     } while(repeater);
     return lang_arr;
@@ -16,7 +16,7 @@ function ask() {
             name: prompt("Введите свое имя:"),
             sname: prompt("Введите свою фмилию:"),
             age: +prompt("Введите свой возраст:"),
-            language: lg()
+            languages: lg()
         };
         a.push(person);
         repeater = confirm("Добавить нового человека?");
