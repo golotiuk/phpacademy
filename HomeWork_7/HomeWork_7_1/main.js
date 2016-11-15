@@ -1,44 +1,34 @@
 var a = +prompt('Введите первое число'),
-    b = +prompt('Введите второе число'),
-    c = prompt('Ведите оператор');
-function add(a, b) {
-    return a + b;
-};
-function sub(a, b) {
-    return a - b;
-};
-function div(a, b) {
-    return a / b;
-};
-function mult(a, b) {
-    return a * b;
-};
-function ost(a, b) {
-    return a % b;
-};
-function show(cb, a, b) {
-    var result = cb(a, b);
-    document.write("Ваш результат: " + a + " " + c + " " + b + " = " + result)
+    b = prompt('Ведите оператор'),
+    c = +prompt('Введите второе число'),
+    d;
+function res(){
+    document.write(a + " " + b + " " + c + " = " + d);
 }
-switch (c) {
+switch (b) {
     case '+': {
-        show(add, a, b);
-        break;
-       }
-    case '-': {
-        show(sub, a, b);
+        d = a + c;
+        res();
         break;
     }
-    case '/': {
-        show(div, a, b);
+    case '-': {
+        d = a - c;
+        res();
         break;
     }
     case '*': {
-        show(mult, a, b);
+        d = a * c;
+        res();
+        break;
+    }
+    case '/': {
+        d = a / c;
+        res();
         break;
     }
     case '%': {
-        show(ost, a, b);
+        d = a % c;
+        res();
         break;
     }
 }
