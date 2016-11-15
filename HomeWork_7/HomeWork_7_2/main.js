@@ -23,15 +23,10 @@ function ask() {
     } while (repeater);
 }
 function say() {
-    for (var i = 0; i < a.length; i++) {
-        for (field in a[i]) {
-            if (typeof a[i][field] == 'object')
-                document.write(field + ': ' + a[i][field].join(',  ') + '<br>');
-            else
-            document.write(field + ': ' + a[i][field] + '<br>');
-        }
-        document.write('<hr>');
-    }
+    var names = a.map(function (pers) {
+        return 'Имя - ' + pers.name + '<br>' + 'Фамилия - ' + pers.sname + '<br>' + 'Возраст - ' + pers.age + '<br>' + 'Владение языками - ' + pers.languages.join(', ') + '<hr>'
+    })
+    document.write(names.join(''));
 }
 ask();
 say();
