@@ -23,7 +23,7 @@ function ask() {
     } while (repeater);
 }
 function say() {
-    var names = a.map(function (pers) {
+    var names = a.map(function(pers) {
         return 'Имя - ' + pers.name + '<br>' + 'Фамилия - ' + pers.sname + '<br>' + 'Возраст - ' + pers.age + '<br>' + 'Владение языками - ' + pers.languages.join(', ') + '<hr>'
     })
     document.write(names.join(''));
