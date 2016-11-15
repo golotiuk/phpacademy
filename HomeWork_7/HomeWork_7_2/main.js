@@ -30,4 +30,3 @@ function say() {
 }
 ask();
 say();
-console.log(a);
