@@ -22,7 +22,7 @@ function ask() {
             age: +prompt("Введите свой возраст:"),
             languages: lg()
         };
-        // error(person);
+        // error();
         a.push(person);
         repeater = confirm("Добавить нового человека?");
     } while (repeater);
