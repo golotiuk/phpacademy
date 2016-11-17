@@ -2,28 +2,27 @@ body {
     margin: 0 20px;
     padding: 0;
     display: flex;
-    align-content: space-around;
-    /*align-items: baseline;*/
+    align-content: stretch;
 }
 p, input {
     padding: 0;
     margin: 0;
-    height: 1.5em;
+    height: 30px;
     width: 95%;
 }
-div {
+#input, #info {
     flex: 1 50%;
     margin: 0 50px;
-
-}
-.info {
-    flex: 50%;
 }
 #add, #delete {
+    margin: 0;
+    padding: 0;
     height: 35px;
     width: 47%;
 }
 #list, #find, #sort {
+    margin: 15px 0;
+    padding: 0;
     height: 35px;
     width: 31%;
 }

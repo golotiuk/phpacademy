@@ -6,27 +6,26 @@
 	<link rel="stylesheet" href="new_style.css">
 </head>
 <body>
-	<div>
-		<form name="forma" action=#>
+	<div id="input">
 			<h2>Заполните данные</h2>
-			<p>Имя:</p>
-			<input type="text" name="name"><br><br>
-			<p>Фамилию:</p>
-			<input type="text" name="sname"><br><br>
-			<p>Возраст:</p>
-			<input type="text" name="age"><br><br>
-			<p>Какими языками программирования владеете через запятую</p>
-			<input type="text" name="langs"><br><br>
+			<p>Имя:<br>
+			<input type="text" name="name"></p><br><br>
+			<p>Фамилию:<br>
+			<input type="text" name="sname"></p><br><br>
+			<p>Возраст:<br>
+			<input type="text" name="age"></p><br><br>
+			<p>Какими языками программирования владеете через запятую<br>
+			<input type="text" name="langs"></p><br><br>
+
 			<input type="button" value="Добавить" id="add">
 			<input type="button" value="Удалить" id="delete">
 			<input type="button" value="Вывести cписок" id="list">
 			<input type="button" value="Найти человека" id="find">
 			<input type="button" value="Сортировать" id="sort">
-		</form>
 	</div>
 	<div id="info">
 		<h2>Список</h2>
-
+		<p id="lists">Для того что бы увидеть список выберите действие</p>
 		<!--<div class="list"></div>-->
 	</div>
 	<script src="new_baza.js"></script>
