@@ -1,0 +1,24 @@
+body {
+    margin: 0 20px;
+    padding: 0;
+    display: flex;
+    align-content: space-around;
+    /*align-items: baseline;*/
+}
+p, input {
+    padding: 0;
+    margin: 0;
+    height: 1.5em;
+    width: 80%;
+}
+div {
+    flex: 1 50%;
+
+}
+.info {
+    flex: 50%;
+}
+#send, #list, #find, #sort {
+    height: 35px;
+    width: 25%;
+}
