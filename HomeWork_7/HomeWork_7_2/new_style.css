@@ -9,16 +9,21 @@ p, input {
     padding: 0;
     margin: 0;
     height: 1.5em;
-    width: 80%;
+    width: 95%;
 }
 div {
     flex: 1 50%;
+    margin: 0 50px;
 
 }
 .info {
     flex: 50%;
 }
-#send, #list, #find, #sort {
+#add, #delete {
     height: 35px;
-    width: 25%;
+    width: 47%;
+}
+#list, #find, #sort {
+    height: 35px;
+    width: 31%;
 }

@@ -1,6 +1,6 @@
 var a = [];
 var person = {};
-document.getElementById("send").onclick = function () {
+document.getElementById("add").onclick = function () {
     person = {
         name: document.getElementsByName("name"),
         sname: document.getElementsByName("sname"),
