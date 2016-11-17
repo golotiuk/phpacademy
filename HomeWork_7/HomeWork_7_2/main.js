@@ -8,7 +8,7 @@ function error(pers) {
     }
     else
         console.log(typeof pers);
-    return
+    return pers
 }
 function lg() {
     var lang_arr = [];
