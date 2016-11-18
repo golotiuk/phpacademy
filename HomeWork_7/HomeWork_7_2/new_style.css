@@ -1,18 +1,34 @@
 body {
     margin: 0 20px;
     padding: 0;
-    display: flex;
-    align-content: stretch;
+    display: inline-block;
+    width: 94%;
+    font-family: Calibri;
+    font-size: 18px;
 }
 p, input {
     padding: 0;
     margin: 0;
-    height: 30px;
-    width: 95%;
+    width: 97%;
+}
+input {
+    height: 25px;
+}
+.radio {
+    height: 20px;
+    width: auto;
+    vertical-align:middle;
+}
+#info {
+    float: right;
+}
+#input {
+    float: left;
 }
 #input, #info {
-    flex: 1 50%;
-    margin: 0 50px;
+    margin: 0;
+    padding: 0;
+    width: 45%;
 }
 #add, #delete {
     margin: 0;
