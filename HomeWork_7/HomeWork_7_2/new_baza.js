@@ -33,7 +33,12 @@ function valid(arg) {
         }
     }
     if ( isNaN(document.getElementsByName("age")[0].value)){
-        alert("not number");
+        alert("Введите число");
+        x = false;
+        return x;
+    }
+    if (check(document.getElementsByName("sex")) == undefined) {
+        alert('Выберите значение');
         x = false;
         return x;
     }
