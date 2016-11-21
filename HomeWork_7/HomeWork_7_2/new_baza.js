@@ -1,19 +1,33 @@
-var a = [];
+var a = [
+    {name:'dima',age:23},
+    {name:'olya',age:24},
+    {name:'vasya',age:25},
+    {name:'taras',age:26}
+    ];
 var person = {};
-var x;
 document.getElementById("add").onclick = function () {
     valid(document.getElementsByClassName("validate"));
+    say();
 };
 document.getElementById("list").onclick = function () {
-    var info = document.getElementById("info");
-    var li = document.getElementById("lists");
-    li.innerHTML = '';
-    list = a.map(function (pers) {
-        return 'Имя - ' + pers.name + '<br>' + 'Фамилия - ' + pers.sname + '<br>' + 'Пол - ' + pers.sex + '<br>' + 'Возраст - ' + pers.age + '<br>' + 'Владение языками - ' + pers.languages
-    });
-    li.innerHTML = list.join('<hr>');
-    info.appendChild(li);
+    say();
 };
+document.getElementById('delete').onclick = function () {
+    var name = prompt('Введите имя');
+    for (var i = 0; i < a.length; i++) {
+        for (field in a[i]) {
+            if (a[i][field] == name) {
+                a.splice(i,1);
+                alert('Удалено');
+                say();
+            }
+        }
+    }
+        say();
+};
+// document.getElementById('list').onclick = function () {
+//
+// };
 function check(arg) {
     var res = arg;
     for (var i = 0; i < res.length; i++) {
@@ -24,14 +38,6 @@ function check(arg) {
 }
 function valid(arg) {
     var x;
-    for (i = 0; i < arg.length; i++) {
-        console.log(typeof arg[i].value);
-        if (arg[i].value == "") {
-            x = false;
-            alert("Не верные значение!");
-            break;
-        }
-    }
     if ( isNaN(document.getElementsByName("age")[0].value)){
         alert("Введите число");
         x = false;
@@ -42,8 +48,12 @@ function valid(arg) {
         x = false;
         return x;
     }
-    else {
-        alert('Добавлено');
+    for (i = 0; i < arg.length; i++) {
+        if (arg[i].value == "") {
+            x = false;
+            alert("Не верные значение!");
+            break;
+        }
     }
     if (x == false) return false;
     else write();
@@ -61,4 +71,14 @@ function write() {
     document.getElementsByName("sname")[0].value = '';
     document.getElementsByName("age")[0].value = '';
     document.getElementsByName("langs")[0].value = '';
+}
+function say() {
+    // var lists = document.getElementById("info");
+    var li = document.getElementById("lists");
+    li.innerHTML = '';
+    list = a.map(function (pers) {
+        return 'Имя - ' + pers.name + '<br>' + 'Фамилия - ' + pers.sname + '<br>' + 'Пол - ' + pers.sex + '<br>' + 'Возраст - ' + pers.age + '<br>' + 'Владение языками - ' + pers.languages
+    });
+    li.innerHTML = list.join('<hr>');
+    document.getElementById("info").appendChild(li);
 }
