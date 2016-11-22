@@ -8,8 +8,8 @@
 <body>
 	<div id="input">
 		<h2>Заполните данные</h2>
-		<p>Имя:<br><input type="text" class="validate" name="name"></p><br>
-		<p>Фамилию:<br><input type="text" class="validate" name="sname"></p><br>
+		<p>Имя:<br><input type="text" class="validate" name="name" autofocus></p><br>
+		<p>Фамилию:<br><input type="text" class="validate" name="sname" required></p><br>
 		<p>Выберите пол:<br>
 			<input type="radio" class="validate radio" value="мужской"  name="sex">Мужской<br>
 			<input type="radio" class="validate radio" value="женский" name="sex">Женский</p><br>
@@ -23,7 +23,10 @@
 	</div>
 	<div id="info">
 		<h2>Список</h2>
-		<p id="lists">Для того что бы увидеть список выберите действие</p>
+		<p id="delete_button"></p>
+		<p id="sort_button">
+        </p>
+		<p id="lists"></p>
 	</div>
 	<script src="new_baza.js"></script>
 </body>

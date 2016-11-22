@@ -3,8 +3,8 @@ body {
     padding: 0;
     display: inline-block;
     width: 94%;
-    font-family: Calibri;
-    font-size: 18px;
+    font-family: Tahoma;
+    font-size: 16px;
 }
 p, input {
     padding: 0;
@@ -18,6 +18,12 @@ input {
     height: 20px;
     width: auto;
     vertical-align:middle;
+}
+.del {
+    margin: 20px 5px;
+    width: 46%;
+    /*margin-right: 10px;*/
+    display: inline;
 }
 #info {
     float: right;

@@ -13,7 +13,26 @@ document.getElementById("list").onclick = function () {
     say();
 };
 document.getElementById('delete').onclick = function () {
-    var name = prompt('Введите имя');
+    var button = document.getElementById('delete_button');
+    button.innerHTML = '';
+    var del_name = document.createElement('input');
+    var del_index = document.createElement('input');
+    var name_index = document.createElement('input');
+    del_name.type = del_index.type = 'button';
+    name_index.type = 'text';
+    del_name.id = 'del_name';
+    del_index.id = 'del_index';
+    name_index.id = 'name_index';
+    del_index.value = 'Удалить по индексу';
+    del_name.value = 'Удалить по имени';
+    del_name.className = del_index.className = "del";
+    button.appendChild(name_index);
+    button.appendChild(del_name);
+    button.appendChild(del_index);
+};
+document.getElementById("del_name").onclick = function () {
+    var name = document.getElementById('name_index')[0].value;
+    console.log(name);
     for (var i = 0; i < a.length; i++) {
         for (field in a[i]) {
             if (a[i][field] == name) {
@@ -23,11 +42,8 @@ document.getElementById('delete').onclick = function () {
             }
         }
     }
-        say();
+//         say();
 };
-// document.getElementById('list').onclick = function () {
-//
-// };
 function check(arg) {
     var res = arg;
     for (var i = 0; i < res.length; i++) {
@@ -73,12 +89,14 @@ function write() {
     document.getElementsByName("langs")[0].value = '';
 }
 function say() {
-    // var lists = document.getElementById("info");
     var li = document.getElementById("lists");
+    var button_del = document.getElementById('delete_button');
+    var button_sort = document.getElementById('sort_button');
+    button_del.innerHTML = '';
+    button_sort.innerHTML = '';
     li.innerHTML = '';
     list = a.map(function (pers) {
         return 'Имя - ' + pers.name + '<br>' + 'Фамилия - ' + pers.sname + '<br>' + 'Пол - ' + pers.sex + '<br>' + 'Возраст - ' + pers.age + '<br>' + 'Владение языками - ' + pers.languages
     });
     li.innerHTML = list.join('<hr>');
-    document.getElementById("info").appendChild(li);
 }
