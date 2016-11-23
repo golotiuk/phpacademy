@@ -25,6 +25,11 @@ input {
     /*margin-right: 10px;*/
     display: inline;
 }
+.sort_but {
+    margin: 20px 5px;
+    width: 30%;
+
+}
 #info {
     float: right;
 }
