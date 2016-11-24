@@ -41,15 +41,19 @@ input {
     padding: 0;
     width: 45%;
 }
-#add, #delete {
-    margin: 0;
+#add, #delete, #list, #sort{
+    margin-top: 10px;
     padding: 0;
     height: 35px;
     width: 47%;
 }
-#list, #find, #sort {
-    margin: 15px 0;
+#close {
+    margin: 10px 0;
     padding: 0;
     height: 35px;
-    width: 31%;
+    width: 95%;
+}
+td {
+    width: 80px;
+    border: 1px solid black;
 }
