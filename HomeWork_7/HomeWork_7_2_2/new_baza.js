@@ -1,14 +1,13 @@
 window.onload =function () {
     var a = [
-        {name: 'dima', age: 23, languages: ['php', ' html', ' css']},
-        {name: 'olya', age: 30, languages: ['php', ' css']},
-        {name: 'vasya', age: 26, languages: ['pyton']},
-        {name: 'taras', age: 22, languages: ['pyton', ' php', ' html', ' css', ' js']}
+        {name: 'dima', sex: 'мужской', age: 23, languages: ['php', ' html', ' css']},
+        {name: 'olya', sex: 'женский', age: 30, languages: ['php', ' css']},
+        {name: 'vasya', sex: 'мужской', age: 26, languages: ['pyton']},
+        {name: 'ruslan', sex: 'мужской', age: 22, languages: ['pyton', ' php', ' html', ' css', ' js']}
     ];
     var person = {};
     document.getElementById("add").onclick = function () {
         valid(document.getElementsByClassName("validate"));
-        say();
     };
     document.getElementById("list").onclick = function () {
         var button = document.getElementById('delete_button');
@@ -22,6 +21,9 @@ window.onload =function () {
         button.innerHTML = '';
         var button_s = document.getElementById('sort_button');
         button_s.innerHTML = '';
+        var list = document.getElementById('lists');
+        list.innerHTML = '';
+        say2();
         var del_name = document.createElement('input');
         var del_index = document.createElement('input');
         var name_index = document.createElement('input');
@@ -43,7 +45,7 @@ window.onload =function () {
                     if (a[i][field] == name) {
                         a.splice(i, 1);
                         document.getElementsByName('name_index')[0].value = '';
-                        say();
+                        say2();
                         break;
                     }
                 }
@@ -55,15 +57,15 @@ window.onload =function () {
                 if (i == index) {
                     a.splice(i, 1);
                     document.getElementsByName('name_index')[0].value = '';
-                    say();
+                    say2();
                 }
             }
         };
     };
-    document.getElementById("sort").onclick = function () {
+    document.getElementById("sort").onclick = function sort() {
         document.getElementById('lists').innerHTML = '';
         var button = document.getElementById('sort_button');
-        // button.innerHTML = '';
+        button.innerHTML = '';
         var button_d = document.getElementById('delete_button');
         button_d.innerHTML = '';
         var sort_name = document.createElement('input');
@@ -141,7 +143,6 @@ window.onload =function () {
         if (x == false) return false;
         else write();
     }
-
     function write() {
         person = {
             name: document.getElementsByName("name")[0].value,
@@ -155,8 +156,8 @@ window.onload =function () {
         document.getElementsByName("sname")[0].value = '';
         document.getElementsByName("age")[0].value = '';
         document.getElementsByName("langs")[0].value = '';
+        say();
     }
-
     function say() {
         var li = document.getElementById("lists");
         li.innerHTML = '';
@@ -167,18 +168,11 @@ window.onload =function () {
     }
     function say2() {
         var li = document.getElementById("lists");
-        // li.innerHTML = '<table>';
         list = a.map(function (pers) {
             return '<tr>' + '<td>' + pers.name + '</td>' + '<td>' + pers.sname + '</td>' + '<td>' + pers.sex + '</td>' +
                 '<td>' + pers.age + '</td>' + '<td>' + pers.languages + '</td>' + '</tr>'
         });
-        // for (var i = 0; i < a.length; i++) {
-        //     for (a[i].field in ) {
-        //         list = a[i][field];
-        //         console.log(list);
-        //     }
-        // }
-        li.innerHTML = '<table' + list + '</table>';
-        // li.innerHTML += '</table>'
+        head = '<tr>' + '<th>' + 'Имя' + '</th>' +'<th>' + 'Фамилия' + '</th>' + '<th>' + 'Пол' + '</th>' + '<th>' + 'Возраст' + '</th>' + '<th>' + 'Знание язиков' + '</th>' + '</tr>';
+        li.innerHTML = '<table>' + head + list.join('') + '</table>';
     }
 };
