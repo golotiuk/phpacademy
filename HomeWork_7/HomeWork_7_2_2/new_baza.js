@@ -7,20 +7,15 @@ window.onload =function () {
     ];
     var person = {};
     document.getElementById("add").onclick = function () {
+        clear_button();
         valid(document.getElementsByClassName("validate"));
     };
     document.getElementById("list").onclick = function () {
-        var button = document.getElementById('delete_button');
-        button.innerHTML = '';
-        var button_s = document.getElementById('sort_button');
-        button_s.innerHTML = '';
+        clear_button();
         say();
     };
     document.getElementById("delete").onclick = function () {
-        var button = document.getElementById('delete_button');
-        button.innerHTML = '';
-        var button_s = document.getElementById('sort_button');
-        button_s.innerHTML = '';
+        clear_button();
         var list = document.getElementById('lists');
         list.innerHTML = '';
         say2();
@@ -64,10 +59,8 @@ window.onload =function () {
     };
     document.getElementById("sort").onclick = function sort() {
         document.getElementById('lists').innerHTML = '';
+        clear_button();
         var button = document.getElementById('sort_button');
-        button.innerHTML = '';
-        var button_d = document.getElementById('delete_button');
-        button_d.innerHTML = '';
         var sort_name = document.createElement('input');
         var sort_lang = document.createElement('input');
         var sort_age = document.createElement('input');
@@ -157,6 +150,12 @@ window.onload =function () {
         document.getElementsByName("age")[0].value = '';
         document.getElementsByName("langs")[0].value = '';
         say();
+    }
+    function clear_button() {
+        var button = document.getElementById('sort_button');
+        button.innerHTML = '';
+        var button_d = document.getElementById('delete_button');
+        button_d.innerHTML = '';
     }
     function say() {
         var li = document.getElementById("lists");
