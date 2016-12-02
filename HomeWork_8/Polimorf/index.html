@@ -4,10 +4,17 @@
     <meta charset="UTF-8">
     <title>Polimorf</title>
     <script>
+        function rectangle(name) {
+            this.name = name;
+            this.height = +prompt('Укажите высоту/радиус');
+            this.width = +prompt('Укажите ширину');
+            this.getArea = function () {
+                this.area = this.height * this.width;
+                document.write('Площадь вашего ' + this.name + 'а:' + this.area + '<br>');
+            }
+        }
         function square(name) {
             this.name = name;
-            this.height = prompt('Укажите высоту/радиус');
-            this.width = prompt('Укажите ширину');
             this.getArea = function () {
                 this.area = Math.pow(this.height, 2);
                 document.write('Площадь вашего ' + this.name + 'а:' + this.area + '<br>');
@@ -27,24 +34,17 @@
                 document.write('Площадь вашего ' + this.name + 'а:' + this.area + '<br>');
             }
         }
-        function rectangle(name) {
-            this.name = name;
-            this.getArea = function () {
-                this.area = this.height * this.width;
-                document.write('Площадь вашего ' + this.name + 'а:' + this.area + '<br>');
-            }
-        }
-        var figura = new  square('квадрат');
+        var figura = new  rectangle('прямоугольник');
         triangle.prototype = figura;
         circle.prototype = figura;
-        rectangle.prototype = figura;
+        square.prototype = figura;
         figura.getArea();
         var Triangle = new triangle('триугольник');
         Triangle.getArea();
         var Сircle  = new circle('круг');
         Сircle.getArea();
-        var Rectangle = new rectangle('прямоугольник');
-        Rectangle.getArea();
+        var Square = new square('квадрат');
+        Square.getArea();
     </script>
 </head>
 <body>
