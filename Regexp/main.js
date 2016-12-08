@@ -12,18 +12,14 @@ window.onload = function () {
         }
         reg_name = document.getElementsByName('name')[0].value;
         pattern_name = /^[a-zA-Zа-яА-Я'][a-zA-Zа-яА-Я-' ]+[a-zA-Zа-яА-Я']?$/u;
-        if (pattern_name.test(reg_name)) {
-        }
-        else {
+        if (!pattern_name.test(reg_name)) {
             document.getElementsByName('name')[0].classList.add('error');
             x = false;
             return x;
         }
         reg_email = document.getElementsByName('email')[0].value;
         pattern_email = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-        if (pattern_email.test(reg_email)) {
-        }
-        else {
+        if (!pattern_email.test(reg_email)) {
             document.getElementsByName('email')[0].classList.add('error');
             x = false;
             return x;
