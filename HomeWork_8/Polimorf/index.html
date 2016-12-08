@@ -4,47 +4,51 @@
     <meta charset="UTF-8">
     <title>Polimorf</title>
     <script>
-        function rectangle(name) {
+        function Rectangle(name) {
             this.name = name;
             this.height = +prompt('Укажите высоту/радиус');
             this.width = +prompt('Укажите ширину');
+            this.area = 0;
             this.getArea = function () {
                 this.area = this.height * this.width;
-                document.write('Площадь вашего ' + this.name + 'а:' + this.area + '<br>');
-            }
+            };
+            this.showArea = function() {
+                document.write('Площадь вашего ' + this.name + 'а:' + this.area + ' единиц' + '<br>');
+            };
         }
-        function square(name) {
+        function Square(name) {
             this.name = name;
             this.getArea = function () {
                 this.area = Math.pow(this.height, 2);
-                document.write('Площадь вашего ' + this.name + 'а:' + this.area + '<br>');
             }
         }
-        function triangle(name) {
+        function Triangle(name) {
             this.name = name;
             this.getArea = function () {
                 this.area = 1 / 2 * this.height * this.width;
-                document.write('Площадь вашего ' + this.name + 'а:' + this.area + '<br>');
             }
         }
-        function circle(name) {
+        function Circle(name) {
             this.name = name;
             this.getArea = function () {
                 this.area = Math.PI * Math.pow(this.height, 2);
-                document.write('Площадь вашего ' + this.name + 'а:' + this.area + '<br>');
             }
         }
-        var figura = new  rectangle('прямоугольник');
-        triangle.prototype = figura;
-        circle.prototype = figura;
-        square.prototype = figura;
+        var figura = new  Rectangle('прямоугольник');
+        Triangle.prototype = figura;
+        Circle.prototype = figura;
+        Square.prototype = figura;
         figura.getArea();
-        var Triangle = new triangle('триугольник');
+        figura.showArea();
+        var Triangle = new Triangle('триугольник');
         Triangle.getArea();
-        var Сircle  = new circle('круг');
+        Triangle.showArea();
+        var Сircle  = new Circle('круг');
         Сircle.getArea();
-        var Square = new square('квадрат');
+        Сircle.showArea();
+        var Square = new Square('квадрат');
         Square.getArea();
+        Square.showArea();
     </script>
 </head>
 <body>
