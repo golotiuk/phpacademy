@@ -62,7 +62,7 @@ window.onload = function () {
         _about = document.getElementById('about');
         reset_error(_about);
         empty(_about, 'Ну скажите хоть что то о себе');
-        if (x != false)
-            document.write('Все требования по заполнению формы были выполнены!');
+        if (x == false)
+            e.preventDefault();
     }
 };
