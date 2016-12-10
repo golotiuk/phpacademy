@@ -5,16 +5,26 @@
     <script>
         window.onload = function () {
             var counter = 0;
+            var stop = 0;
             var intervalHandler;
             function count(){
                 get("output").innerHTML = counter;
                 counter++;
             }
             get("startButton").onclick = function () {
-                intervalHandler = setInterval(count, 1000);
+                if (stop == counter) {
+                    intervalHandler = setInterval(count, 100);
+                }
             };
             get("stopButton").onclick = function () {
+                stop = counter;
                 clearInterval(intervalHandler);
+            };
+            get("resetButton").onclick = function () {
+                counter = 0;
+                stop = 0;
+                clearInterval(intervalHandler);
+                get("output").innerHTML = "-";
             }
         };
         var get = function (id){
@@ -25,10 +35,9 @@
 <body>
 <div style="margin: 20px auto; width: 300px;">
     <p id="output" style="margin: 20px auto; width: 30px;">-</p>
-    <input id="startButton" type="button" value="Start" style="width: 70px"/>
-    <input id="pauseButton" type="button" value="Pause" style="width: 70px"/>
-    <input id="continueButton" type="button" value="Continue" style="width: 70px"/>
-    <input id="stopButton" type="button" value="Stop" style="width: 70px"/>
+    <input id="startButton" type="button" value="Start" style="width: 97px"/>
+    <input id="stopButton" type="button" value="Stop" style="width: 97px"/>
+    <input id="resetButton" type="button" value="Reset" style="width: 97px"/>
 </div>
 </body>
 </html>
