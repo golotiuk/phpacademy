@@ -1,7 +1,6 @@
 window.onload = function () {
     $('#date').mask('00/00/0000');
     $('#phone').mask('+38 (000) 000-0000');
-
     document.getElementById('check').onclick = function validate() {
         var x = true;
         function empty(elem, message) {
@@ -14,7 +13,6 @@ window.onload = function () {
             elem.classList.add('error');
             msgElem = document.createElement('span');
             msgElem.innerHTML = message;
-            console.log(msgElem);
             elem.parentNode.appendChild(msgElem);
         }
         function reset_error(elem) {
@@ -25,41 +23,45 @@ window.onload = function () {
         }
         function pattern(patt, elem, massage) {
             if (!patt.test(elem.value)) {
-                console.log('asdasd');
                 show_error(elem, massage);
                 x = false;
             }
             else {
-                console.log('xczx2');
                 empty(elem, massage);
             }
         }
-        //
-        // err(date, 'Не корректная дата');
-        // err('phone');
-        // err('sex');
-        // err('about');
         _name = document.getElementById('name');
-        pattern_name = /^[a-z0-9_-]{3,16}$/;
-        // reset_error(_name);
+        pattern_name = /^[a-zA-Zа-яА-Я0-9_-]{3,16}$/;
+        reset_error(_name);
         pattern(pattern_name, _name, 'Не корректное имя');
         _date = document.getElementById('date');
-        reset_error(_name);
+        reset_error(_date);
         empty(_date, 'Введите дату');
-        _sex =document.getElementById('sex');
-        reset_error(_name);
+        _sex = document.getElementById('sex');
+        reset_error(_sex);
         empty(_sex, 'Выберите пол');
         _email = document.getElementById('email');
         pattern_email = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
         reset_error(_email);
         pattern(pattern_email, _email, 'Не корректная почта');
-        // reg_passwd = document.getElementById('passwd');
-        // pattern_passwd = /^[a-z0-9_-]{6,18}$/;
-        // if (!pattern_passwd.test(reg_passwd.value)) {
-        //     document.getElementById('passwd').classList.add('error');
-        //     err(reg_passwd, 'Не корректный пароль');
-        //     x = false;
-        // }
+        _phone = document.getElementById('phone');
+        reset_error(_phone);
+        empty(_phone, 'Введите ваш телефон');
+        _passwd = document.getElementById('passwd');
+        pattern_passwd = /^[a-z0-9_-]{6,18}$/;
+        reset_error(_passwd);
+        pattern(pattern_passwd, _passwd, 'Введите пароль соответствующий требованиям');
+        _conf_passwd = document.getElementById('conf_passwd');
+        reset_error(_conf_passwd);
+        if (_conf_passwd.value === _passwd.value) {
+            empty(_conf_passwd, 'Повторите пароль');
+        }
+        else {
+            show_error(_conf_passwd, 'Пароли не совпадают');
+        }
+        _about = document.getElementById('about');
+        reset_error(_about);
+        empty(_about, 'Ну скажите хоть что то о себе');
         if (x != false)
             document.write('Все требования по заполнению формы были выполнены!');
     }
