@@ -7,6 +7,8 @@
             var counter = 0;
             var stop = 0;
             var intervalHandler;
+            var m = '00',
+                h = '00';
             function count(){
                 counter++;
                 s = counter;
@@ -14,14 +16,14 @@
                     s = '0' + s;
                 }
                 if (s >= 60) {
-                    m++;
+                    +m++;
                     if (m < 10) {
                         m = '0' + m;
                     }
                     counter = 0;
                 }
                 if (m >= 60) {
-                    h++;
+                    +h++;
                     if (h < 10) {
                         h = '0' + h;
                     }
@@ -31,7 +33,7 @@
             }
             get("startButton").onclick = function () {
                 if (stop == counter) {
-                    intervalHandler = setInterval(count, 1000, m = '00', h = '00');
+                    intervalHandler = setInterval(count, 1000);
                 }
             };
             get("stopButton").onclick = function () {
