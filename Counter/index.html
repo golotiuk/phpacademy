@@ -33,7 +33,7 @@
             }
             get("startButton").onclick = function () {
                 if (stop == counter) {
-                    intervalHandler = setInterval(count, 1000);
+                    intervalHandler = setInterval(count, 100);
                 }
             };
             get("stopButton").onclick = function () {
@@ -43,6 +43,8 @@
             get("resetButton").onclick = function () {
                 counter = 0;
                 stop = 0;
+                m = '00';
+                h = '00';
                 clearInterval(intervalHandler);
                 get("output").innerHTML = "-";
             }
