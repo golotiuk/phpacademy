@@ -8,12 +8,30 @@
             var stop = 0;
             var intervalHandler;
             function count(){
-                get("output").innerHTML = counter;
                 counter++;
+                s = counter;
+                if (s < 10) {
+                    s = '0' + s;
+                }
+                if (s >= 60) {
+                    m++;
+                    if (m < 10) {
+                        m = '0' + m;
+                    }
+                    counter = 0;
+                }
+                if (m >= 60) {
+                    h++;
+                    if (h < 10) {
+                        h = '0' + h;
+                    }
+                    m = 0;
+                }
+                get("output").innerHTML = h + ':' + m + ':' + s;
             }
             get("startButton").onclick = function () {
                 if (stop == counter) {
-                    intervalHandler = setInterval(count, 100);
+                    intervalHandler = setInterval(count, 1000, m = '00', h = '00');
                 }
             };
             get("stopButton").onclick = function () {
@@ -34,7 +52,7 @@
 </head>
 <body>
 <div style="margin: 20px auto; width: 300px;">
-    <p id="output" style="margin: 20px auto; width: 30px;">-</p>
+    <p id="output" style="margin: 20px auto; width: 100px; text-align: center">-</p>
     <input id="startButton" type="button" value="Start" style="width: 97px"/>
     <input id="stopButton" type="button" value="Stop" style="width: 97px"/>
     <input id="resetButton" type="button" value="Reset" style="width: 97px"/>
