@@ -15,7 +15,11 @@
                 if (s < 10) {
                     s = '0' + s;
                 }
+
                 if (s >= 60) {
+                    if (s = 60){
+                        s = '00';
+                    }
                     +m++;
                     if (m < 10) {
                         m = '0' + m;
@@ -27,13 +31,16 @@
                     if (h < 10) {
                         h = '0' + h;
                     }
-                    m = 0;
+                    if (m = 60){
+                        m = '00';
+                    }
+                    m = '00';
                 }
                 get("output").innerHTML = h + ':' + m + ':' + s;
             }
             get("startButton").onclick = function () {
                 if (stop == counter) {
-                    intervalHandler = setInterval(count, 100);
+                    intervalHandler = setInterval(count, 1000);
                 }
             };
             get("stopButton").onclick = function () {
