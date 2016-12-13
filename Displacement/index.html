@@ -10,7 +10,25 @@
                 var elem = document.getElementById("elem");
                 elem.addEventListener("mousedown", function (e) {
                     drag(this, e);
-                })
+                });
+                document.getElementById('big_elem').addEventListener('mousemove', move, false)
+            }
+
+            function move(e) {
+                _elem = document.getElementById('elem');
+                var origX = _elem.offsetLeft,
+                    origY = _elem.offsetTop;
+                maxX = 850;
+                _big_elem = document.getElementById('big_elem');
+                _elem = document.getElementById('elem');
+                if (origX <= 0 || origY <= 0 || (origX + 50) >= 800 || (origY + 50) >= 500) {
+                    _big_elem.classList.add('error');
+                    console.log(e);
+                }
+                else {
+                    _big_elem.classList.remove('error');
+                }
+                document.getElementById('out').innerHTML = 'X: ' + origX + '<br>' + 'Y: ' + origY;
             }
 
             function drag(elementToDrag, event) {
@@ -18,6 +36,7 @@
                     startY = event.clientY;
                 var origX = elementToDrag.offsetLeft,
                     origY = elementToDrag.offsetTop;
+
                 var deltaX = startX - origX,
                     deltaY = startY - origY;
                 document.addEventListener("mousemove", moveHandler, true);
@@ -31,16 +50,22 @@
 
                 function upHandler(e) {
                     if (!e) e = window.event;
-
                     document.removeEventListener("mouseup", upHandler, true);
                     document.removeEventListener("mousemove", moveHandler, true);
                 }
             }
         })()
     </script>
+    <style>
+        .error {
+            border-color: red !important;
+        }
+    </style>
 </head>
-<body>
-<div id="elem" style="position: absolute; left: 100px; top: 100px; height: 50px; width: 50px; background-color: Green;"></div>
-<div id="elem2" style="position: relative; left: 200px; top: 200px; height: 50px; width: 50px; background-color: blue;"></div>
+<body style="width: 100%; height: 100%; position: absolute; margin: 0; padding: 0;">
+<div id="big_elem" style="position: absolute; left: 100px; top: 100px; height: 500px; width: 800px; border: 5px solid blue;">
+<div id="elem" style="position: absolute; left: 400px; top: 200px; height: 50px; width: 50px; border-radius: 50%; background-color: Green;"></div>
+</div>
+<p id="out"></p>
 </body>
 </html>
