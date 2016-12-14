@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Перетаскивание элементов документа</title>
+    <meta charset="UTF-8">
     <script type="text/javascript">
         (function(){
             window.addEventListener("load", init, false);
@@ -11,32 +12,35 @@
                 elem.addEventListener("mousedown", function (e) {
                     drag(this, e);
                 });
-                document.getElementById('big_elem').addEventListener('mousemove', move, false)
+                document.getElementById('big_elem').addEventListener('mousemove', move, false);
             }
 
-            function move(e) {
+            function move() {
                 _elem = document.getElementById('elem');
                 var origX = _elem.offsetLeft,
                     origY = _elem.offsetTop;
-                maxX = 850;
                 _big_elem = document.getElementById('big_elem');
-                _elem = document.getElementById('elem');
                 if (origX <= 0 || origY <= 0 || (origX + 50) >= 800 || (origY + 50) >= 500) {
                     _big_elem.classList.add('error');
-                    console.log(e);
+                    stop();
                 }
                 else {
                     _big_elem.classList.remove('error');
                 }
                 document.getElementById('out').innerHTML = 'X: ' + origX + '<br>' + 'Y: ' + origY;
-            }
 
+                function stop() {
+                    if (origX <= 0) _elem.style.left = "0px";
+                    if (origY <= 0) _elem.style.top = "0px";
+                    if ((origX + 50) >= 800) _elem.style.left = "750px";
+                    if ((origY + 50) >= 500) _elem.style.top = "450px";
+                }
+            }
             function drag(elementToDrag, event) {
-                var startX = event.clientX,
+                var startX = event.clientX;
                     startY = event.clientY;
                 var origX = elementToDrag.offsetLeft,
                     origY = elementToDrag.offsetTop;
-
                 var deltaX = startX - origX,
                     deltaY = startY - origY;
                 document.addEventListener("mousemove", moveHandler, true);
@@ -48,8 +52,7 @@
                     elementToDrag.style.top = (e.clientY - deltaY) + "px";
                 }
 
-                function upHandler(e) {
-                    if (!e) e = window.event;
+                function upHandler() {
                     document.removeEventListener("mouseup", upHandler, true);
                     document.removeEventListener("mousemove", moveHandler, true);
                 }
@@ -57,14 +60,32 @@
         })()
     </script>
     <style>
+        .big_elem {
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            height: 500px;
+            width: 800px;
+            border: 5px solid blue;
+        }
+        .elem {
+            position: absolute;
+            left: 400px;
+            top: 200px;
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            background-color: Green;
+        }
         .error {
             border-color: red !important;
+
         }
     </style>
 </head>
 <body style="width: 100%; height: 100%; position: absolute; margin: 0; padding: 0;">
-<div id="big_elem" style="position: absolute; left: 100px; top: 100px; height: 500px; width: 800px; border: 5px solid blue;">
-<div id="elem" style="position: absolute; left: 400px; top: 200px; height: 50px; width: 50px; border-radius: 50%; background-color: Green;"></div>
+<div id="big_elem" class="big_elem">
+    <div id="elem" class="elem"></div>
 </div>
 <p id="out"></p>
 </body>
