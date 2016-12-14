@@ -12,49 +12,45 @@
                 elem.addEventListener("mousedown", function (e) {
                     drag(this, e);
                 });
-                document.getElementById('big_elem').addEventListener('mousemove', move, false);
-            }
+//                document.getElementById('big_elem').addEventListener('mousemove', move, false);
 
-            function move() {
-                _elem = document.getElementById('elem');
-                var origX = _elem.offsetLeft,
-                    origY = _elem.offsetTop;
-                _big_elem = document.getElementById('big_elem');
-                if (origX <= 0 || origY <= 0 || (origX + 50) >= 800 || (origY + 50) >= 500) {
-                    _big_elem.classList.add('error');
-                    stop();
-                }
-                else {
-                    _big_elem.classList.remove('error');
-                }
-                document.getElementById('out').innerHTML = 'X: ' + origX + '<br>' + 'Y: ' + origY;
-
-                function stop() {
-                    if (origX <= 0) _elem.style.left = "0px";
-                    if (origY <= 0) _elem.style.top = "0px";
-                    if ((origX + 50) >= 800) _elem.style.left = "750px";
-                    if ((origY + 50) >= 500) _elem.style.top = "450px";
-                }
-            }
-            function drag(elementToDrag, event) {
-                var startX = event.clientX;
+                function drag(elementToDrag, event) {
+                    var startX = event.clientX;
                     startY = event.clientY;
-                var origX = elementToDrag.offsetLeft,
-                    origY = elementToDrag.offsetTop;
-                var deltaX = startX - origX,
-                    deltaY = startY - origY;
-                document.addEventListener("mousemove", moveHandler, true);
-                document.addEventListener("mouseup", upHandler, true);
+                    var origX = elementToDrag.offsetLeft,
+                        origY = elementToDrag.offsetTop;
+                    var deltaX = startX - origX,
+                        deltaY = startY - origY;
+                    document.addEventListener("mousemove", moveHandler, true);
+                    document.addEventListener("mouseup", upHandler, true);
 
-                function moveHandler(e) {
-                    if (!e) e = window.event;
-                    elementToDrag.style.left = (e.clientX - deltaX) + "px";
-                    elementToDrag.style.top = (e.clientY - deltaY) + "px";
-                }
+                    function moveHandler(e) {
+                        if (!e) e = window.event;
+                        elementToDrag.style.left = (e.clientX - deltaX) + "px";
+                        elementToDrag.style.top = (e.clientY - deltaY) + "px";
+                        _elem = document.getElementById('elem');
+                        var origX = _elem.offsetLeft,
+                            origY = _elem.offsetTop;
+                        _big_elem = document.getElementById('big_elem');
+                        if (origX <= 0 || origY <= 0 || (origX + 50) >= 800 || (origY + 50) >= 500) {
+                            _big_elem.classList.add('error');
+                            stop();
+                        }
+                        else {
+                            _big_elem.classList.remove('error');
+                        }
 
-                function upHandler() {
-                    document.removeEventListener("mouseup", upHandler, true);
-                    document.removeEventListener("mousemove", moveHandler, true);
+                        function stop() {
+                            if (origX <= 0) _elem.style.left = "0px";
+                            if (origY <= 0) _elem.style.top = "0px";
+                            if ((origX + 50) >= 800) _elem.style.left = "750px";
+                            if ((origY + 50) >= 500) _elem.style.top = "450px";
+                        }
+                    }
+                    function upHandler() {
+                        document.removeEventListener("mouseup", upHandler, true);
+                        document.removeEventListener("mousemove", moveHandler, true);
+                    }
                 }
             }
         })()
