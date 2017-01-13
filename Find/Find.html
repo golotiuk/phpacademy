@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Find</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src='highlight.js'></script>
+	<style>
+		body{
+			font-size: 18px;
+		}
+		.highlight{
+			background-color: yellow;
+			border-radius: 8px;
+			text-decoration: underline;
+		}
+	</style>
+</head>
+<body>
+	<input type="text">
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi autem laudantium illum aspernatur repudiandae, maiores officiis quo itaque temporibus est possimus pariatur, sequi facilis at praesentium iusto sunt magnam. Ipsum.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed rerum quod nostrum, velit consectetur commodi adipisci consequatur asperiores, quia libero magni, sapiente illo dolorum nesciunt assumenda fuga repellat ipsum aut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas ullam voluptate nulla, sapiente, soluta perspiciatis aperiam sit deserunt eum dignissimos quo quam rerum numquam quos impedit esse at optio. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem modi, temporibus adipisci sunt ab nostrum voluptates harum laborum. Commodi vel quidem autem repudiandae tenetur minus odit impedit ratione, praesentium minima.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores officiis vero inventore, adipisci, laudantium provident! Esse alias quod nobis laborum reprehenderit corporis iusto fuga. Culpa a facere provident ducimus autem.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus tempora recusandae est commodi, magnam atque itaque delectus et deleniti aut repellendus blanditiis fugiat adipisci, amet optio in laborum accusamus non.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam tempore repellendus delectus, eius, veniam molestias praesentium! Praesentium deleniti, modi nisi iusto totam, aperiam saepe molestiae repudiandae fugiat a recusandae Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium blanditiis mollitia accusantium expedita rerum, soluta dolorum nam recusandae veritatis quas numquam quo fugit quasi at consequatur cupiditate quae ullam consectetur.</p>
+	<script>
+		// $('.search_button').on('click', find);
+		$('input[type=text]').on('keyup', find);
+		function find() {
+			var f = $('input[type=text]').val();
+			$('body').removeHighlight();
+			// $('p:contains('+ f + ')').css('color','red');
+			if ( f ) {
+				$('body').highlight( f );
+			}
+		}
+	</script>
+</body>
+</html>
