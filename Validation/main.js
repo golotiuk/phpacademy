@@ -63,6 +63,7 @@ window.onload = function () {
         reset_error(_about);
         empty(_about, 'Ну скажите хоть что то о себе');
         if (x == false)
+            console.log(x);
             e.preventDefault();
     }
 };

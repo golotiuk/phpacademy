@@ -1,35 +1,46 @@
 ﻿<!doctype html>
-<html ng-app>
+<html >
 <head>
-    <script src="angular.js"></script>
-    <script src="list.js"></script>
-
-    <link rel="stylesheet" href="list.css">
-    <link href="map.json">
-    <link href="bootstrap.css" rel="stylesheet" />
-    <link href="bootstrap-theme.css" rel="stylesheet" />
+	<script src="angular.js"></script>
+	<script src="list.js"></script>
+	<link href="list.css" rel="stylesheet">
+	<link href="bootstrap.css" rel="stylesheet" />
+	<link href="bootstrap-theme.css" rel="stylesheet" />
 </head>
-<body>
-    <div style="width:400px; margin:0 auto">
-        <h2 class="h1">Список покупок</h2>
-        <div class="panel" ng-controller="ListCtrl">
-            <span class="h4">Осталось {{remain()}} из {{items.length}}</span>
-             <table class="table table-striped">
-                <tbody>
-                    <tr ng-repeat="item in items">
-                      <td><input class="checkbox-inline" type="checkbox" ng-model="item.done"></td>
-                        <td><span class="done-{{item.done}}">{{item.text}}</span></td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <form ng-submit="addItem()">
-                <input class="form-control" type="text" ng-model="itemText" size="30"
-                       placeholder="Добавить покупку.">
-                <input class="btn btn-primary" type="submit" value="Добавить">
-            </form>
-        </div>
-    </div>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d5080.204966317781!2d30.63057102941089!3d50.457816267905535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m3!3m2!1d50.4594807!2d30.6307701!4m5!1s0x0%3A0x959617a30744a516!2z0JDRiNCw0L0!3m2!1d50.4548819!2d30.6382215!5e0!3m2!1suk!2sua!4v1485464340616" width="100%" height="400" frameborder="0" style="border:0; overflow: hidden;"></iframe>
+<body ng-app>
+	<div style="width:500px; margin:0 auto">
+		<h2 class="h1">Список заданий</h2>
+		<div class="panel" ng-controller="ListCtrl">
+			<span class="h4">Осталось {{remain()}} из {{items.length}}</span>
+			 <table class="table table-striped">
+				<tbody  ng-repeat="item in items">
+					<tr ng-if="item != activeItem">
+						<!-- read-only cells -->
+						<td><input class="checkbox-inline" type="checkbox" ng-model="item.done"></td>
+						<td><span class="done-{{item.done}}">{{item.text}}</span></td>
+						<td class="date"><span>{{item.date | date:"dd-MM-yyyy"}}</span></td>
+						<td><button class='btn btn-info' ng-click='edit(item)'> Edit </button>
+						<button class='btn btn-danger' ng-click='delete(item)'> Del </button></td>
+					</tr>
+					<tr ng-if="item == activeItem"> 
+						<!-- editable cells -->
+						<td colspan="2"><input class='form-control' ng-model='item.text' type='text' autofocus></td>
+						<td><input type="date" class="date" ng-model='itemDate' autocomplete="Срок"></td>
+						<td><button class='btn btn-primary' ng-click='update(item)'> Update </button></td>
+					</tr>
+				</tbody>
+			</table>
+			<br>
+			<form ng-submit="addItem()">
+				<table id="add" class="table table-striped">
+					<tr>
+						<td><input class="form-control" type="text" ng-model="itemText" size="30" placeholder="Добавить покупку." required></td>
+						<td><input type="date" class="date" ng-model='itemDate'></td>
+					</tr>
+				</table>
+				<input class="btn btn-primary" id="add-button" type="submit" value="Добавить">
+			</form>
+		</div>
+	</div>
 </body>
 </html>

@@ -3,6 +3,27 @@
   color: grey;
 }
 .done-false {
-  text-decoration: underline;
-  color: red;
+  /*text-decoration: underline;*/
+  /*color: red;*/
+}
+
+td {
+	max-width: 150px;
+}
+#add{
+	margin-bottom: 0;
+}
+.date{
+	width: 110px;
+	font-size: 14px;
+}
+tbody > tr > td:last-child {
+  text-align: right;
+  width: 120px;
+}
+input.date{
+	width: 140px;
+}
+#add-button{
+	float: right !important;
 }
