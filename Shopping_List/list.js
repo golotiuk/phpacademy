@@ -1,4 +1,5 @@
-﻿function ListCtrl($scope) {
+﻿angular.module("myToDo",[])
+.controller("ListCtrl", function ($scope) {
 	$scope.items = [];
 	if (localStorage.object){
 		$scope.items = JSON.parse(localStorage.getItem("object"));
@@ -21,11 +22,14 @@
 		var index = $scope.items.indexOf(text); 
 		$scope.items.splice(index, 1); 
 	};
-	var activeItem = 1;
 	$scope.edit = function(item) {
 		$scope.activeItem = item;
-	}; 
+	};
 	$scope.update = function(item) { 
 		$scope.activeItem = null; 
 	};
-};
+	$scope.showDone = function(item) {
+		done = item.done;
+		return done;
+	}
+});

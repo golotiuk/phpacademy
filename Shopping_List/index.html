@@ -7,16 +7,18 @@
 	<link href="bootstrap.css" rel="stylesheet" />
 	<link href="bootstrap-theme.css" rel="stylesheet" />
 </head>
-<body ng-app>
-	<div style="width:500px; margin:0 auto">
+<body ng-app="myToDo" ng-controller="ListCtrl">
+	<div class="col-xs-3" >	
+	</div>
+	<div class="col-xs-6">
 		<h2 class="h1">Список заданий</h2>
-		<div class="panel" ng-controller="ListCtrl">
+		<div class="panel">
 			<span class="h4">Осталось {{remain()}} из {{items.length}}</span>
 			 <table class="table table-striped">
-				<tbody  ng-repeat="item in items">
-					<tr ng-if="item != activeItem">
+				<tbody  ng-repeat="item in items track by $index">
+					<tr ng-if="item != activeItem && !item.done" >
 						<!-- read-only cells -->
-						<td><input class="checkbox-inline" type="checkbox" ng-model="item.done"></td>
+						<td><input class="checkbox-inline" type="checkbox" ng-model="item.done" ></td>
 						<td><span class="done-{{item.done}}">{{item.text}}</span></td>
 						<td class="date"><span>{{item.date | date:"dd-MM-yyyy"}}</span></td>
 						<td><button class='btn btn-info' ng-click='edit(item)'> Edit </button>
@@ -25,7 +27,7 @@
 					<tr ng-if="item == activeItem"> 
 						<!-- editable cells -->
 						<td colspan="2"><input class='form-control' ng-model='item.text' type='text' autofocus></td>
-						<td><input type="date" class="date" ng-model='itemDate' autocomplete="Срок"></td>
+						<td><input type="date" class="date" ng-model='itemDate'></td>
 						<td><button class='btn btn-primary' ng-click='update(item)'> Update </button></td>
 					</tr>
 				</tbody>
@@ -41,6 +43,20 @@
 				<input class="btn btn-primary" id="add-button" type="submit" value="Добавить">
 			</form>
 		</div>
+        <div>
+            <button class='btn btn-primary' ng-click='showDone()'>Завершённые</button>
+            <table class="table table-striped">
+                <tbody  ng-repeat="item in items track by $index">
+                    <tr ng-if="done">
+                        <td><input class="checkbox-inline" type="checkbox" ng-model="item.done" ></td>
+                        <td><span class="done-{{item.done}}">{{item.text}}</span></td>
+                        <td class="date"><span>{{item.date | date:"dd-MM-yyyy"}}</span></td>
+                        <td><button class='btn btn-danger' ng-click='delete(item)'> Del </button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 	</div>
+	<div class="col-xs-3"></div>
 </body>
 </html>
