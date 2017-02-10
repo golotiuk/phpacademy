@@ -3,7 +3,6 @@
 	$scope.items = [];
 	if (localStorage.object){
 		$scope.items = JSON.parse(localStorage.getItem("object"));
-		// console.log(localStorage);
 	}
 	$scope.addItem = function () {
 		$scope.items.push({ text: $scope.itemText, date: $scope.itemDate, done: false });
