@@ -3,7 +3,7 @@
 	$scope.items = [];
 	if (localStorage.object){
 		$scope.items = JSON.parse(localStorage.getItem("object"));
-		console.log(localStorage);
+		// console.log(localStorage);
 	}
 	$scope.addItem = function () {
 		$scope.items.push({ text: $scope.itemText, date: $scope.itemDate, done: false });
@@ -25,11 +25,26 @@
 	$scope.edit = function(item) {
 		$scope.activeItem = item;
 	};
-	$scope.update = function(item) { 
+	$scope.update = function(item) {  
 		$scope.activeItem = null; 
 	};
-	$scope.showDone = function(item) {
-		done = item.done;
-		return done;
+	$scope.changevalue = false;
+	$scope.setDone = function(){
+		$scope.changevalue = !$scope.changevalue;
+	}
+})
+.filter("showDone", function () {
+	return function (value, boolian) {
+		var result = [];
+		if(boolian == false) return false;
+		value.map(function(item) {
+			if(item.done === true) result.push(item);
+		})
+		return result; 
+	};
+})
+.filter("showDone", function () {
+	return function(){
+		var date = new Date();
 	}
 });

@@ -1,7 +1,9 @@
 ﻿<!doctype html>
 <html >
 <head>
-	<script src="angular.js"></script>
+    <title>Task list</title>
+	<!-- <script src="angular.js"></script> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 	<script src="list.js"></script>
 	<link href="list.css" rel="stylesheet">
 	<link href="bootstrap.css" rel="stylesheet" />
@@ -14,10 +16,9 @@
 		<h2 class="h1">Список заданий</h2>
 		<div class="panel">
 			<span class="h4">Осталось {{remain()}} из {{items.length}}</span>
-			 <table class="table table-striped">
-				<tbody  ng-repeat="item in items track by $index">
+			<table class="table table-striped">
+				<tbody  ng-repeat="item in items">
 					<tr ng-if="item != activeItem && !item.done" >
-						<!-- read-only cells -->
 						<td><input class="checkbox-inline" type="checkbox" ng-model="item.done" ></td>
 						<td><span class="done-{{item.done}}">{{item.text}}</span></td>
 						<td class="date"><span>{{item.date | date:"dd-MM-yyyy"}}</span></td>
@@ -25,7 +26,6 @@
 						<button class='btn btn-danger' ng-click='delete(item)'> Del </button></td>
 					</tr>
 					<tr ng-if="item == activeItem"> 
-						<!-- editable cells -->
 						<td colspan="2"><input class='form-control' ng-model='item.text' type='text' autofocus></td>
 						<td><input type="date" class="date" ng-model='itemDate'></td>
 						<td><button class='btn btn-primary' ng-click='update(item)'> Update </button></td>
@@ -43,11 +43,10 @@
 				<input class="btn btn-primary" id="add-button" type="submit" value="Добавить">
 			</form>
 		</div>
-        <div>
-            <button class='btn btn-primary' ng-click='showDone()'>Завершённые</button>
+        <div style="margin-top: 50px;">
             <table class="table table-striped">
-                <tbody  ng-repeat="item in items track by $index">
-                    <tr ng-if="done">
+                <tbody  ng-repeat="item in items | showDone: changevalue">
+                    <tr>
                         <td><input class="checkbox-inline" type="checkbox" ng-model="item.done" ></td>
                         <td><span class="done-{{item.done}}">{{item.text}}</span></td>
                         <td class="date"><span>{{item.date | date:"dd-MM-yyyy"}}</span></td>
@@ -55,6 +54,7 @@
                     </tr>
                 </tbody>
             </table>
+            <button class='btn btn-primary' ng-click='setDone()'>Завершённые</button>
         </div>
 	</div>
 	<div class="col-xs-3"></div>
