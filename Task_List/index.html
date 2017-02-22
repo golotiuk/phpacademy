@@ -10,14 +10,33 @@
 	<link href="bootstrap-theme.css" rel="stylesheet" />
 </head>
 <body ng-app="myToDo" ng-controller="ListCtrl">
-	<div class="col-xs-3" >	
+	<div class="col-xs-3" style="margin-top: 100px;">
+	<a class='btn' ng-click='setDone()'>Осталось / Завершено</a><br>
+	<a class='btn' ng-click='showDate()'>Задачи на текущий день</a><br>
+	<a class='btn' ng-click='setWeek()'>Задачи на неделю день</a>
 	</div>
 	<div class="col-xs-6">
 		<h2 class="h1">Список заданий</h2>
 		<div class="panel">
 			<span class="h4">Осталось {{remain()}} из {{items.length}}</span>
 			<table class="table table-striped">
-				<tbody  ng-repeat="item in items">
+				<tbody  ng-repeat="item in items" ng-if="!done">
+					<tr ng-if="item != activeItem && !item.done" >
+						<td><input class="checkbox-inline" type="checkbox" ng-model="item.done" ></td>
+						<td><span class="done-{{item.done}}">{{item.text}}</span></td>
+						<td class="date"><span>{{item.date | date:"dd-MM-yyyy"}}</span></td>
+						<td><button class='btn btn-info' ng-click='edit(item)'> Edit </button>
+						<button class='btn btn-danger' ng-click='delete(item)'> Del </button></td>
+					</tr>
+					<tr ng-if="item == activeItem"> 
+						<td colspan="2"><input class='form-control' ng-model='item.text' type='text' autofocus></td>
+						<td><input type="date" class="date" ng-model='item.date'></td>
+						<td><input type="update(item)" class='btn btn-primary' ng-click='update(item)' value= "Update"></td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- <table class="table table-striped">
+				<tbody  ng-repeat="item in items | showDate: day">
 					<tr ng-if="item != activeItem && !item.done" >
 						<td><input class="checkbox-inline" type="checkbox" ng-model="item.done" ></td>
 						<td><span class="done-{{item.done}}">{{item.text}}</span></td>
@@ -31,7 +50,17 @@
 						<td><button class='btn btn-primary' ng-click='update(item)'> Update </button></td>
 					</tr>
 				</tbody>
-			</table>
+			</table> -->
+			<table class="table table-striped">
+                <tbody  ng-repeat="item in items | showDone: done">
+                    <tr>
+                        <td><input class="checkbox-inline" type="checkbox" ng-model="item.done" ></td>
+                        <td><span class="done-{{item.done}}">{{item.text}}</span></td>
+                        <td class="date"><span>{{item.date | date:"dd-MM-yyyy"}}</span></td>
+                        <td><button class='btn btn-danger' ng-click='delete(item)'> Del </button></td>
+                    </tr>
+                </tbody>
+            </table>
 			<br>
 			<form ng-submit="addItem()">
 				<table id="add" class="table table-striped">
@@ -43,20 +72,8 @@
 				<input class="btn btn-primary" id="add-button" type="submit" value="Добавить">
 			</form>
 		</div>
-        <div style="margin-top: 50px;">
-            <table class="table table-striped">
-                <tbody  ng-repeat="item in items | showDone: changevalue">
-                    <tr>
-                        <td><input class="checkbox-inline" type="checkbox" ng-model="item.done" ></td>
-                        <td><span class="done-{{item.done}}">{{item.text}}</span></td>
-                        <td class="date"><span>{{item.date | date:"dd-MM-yyyy"}}</span></td>
-                        <td><button class='btn btn-danger' ng-click='delete(item)'> Del </button></td>
-                    </tr>
-                </tbody>
-            </table>
-            <button class='btn btn-primary' ng-click='setDone()'>Завершённые</button>
-        </div>
 	</div>
-	<div class="col-xs-3"></div>
+	<div class="col-xs-3">
+	</div>
 </body>
 </html>

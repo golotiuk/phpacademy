@@ -27,9 +27,23 @@
 	$scope.update = function(item) {  
 		$scope.activeItem = null; 
 	};
-	$scope.changevalue = false;
+	$scope.done = false;
+	$scope.day = false;
+	$scope.week = false;
+
 	$scope.setDone = function(){
-		$scope.changevalue = !$scope.changevalue;
+		$scope.done = !$scope.done;
+	};
+	$scope.setDay = function(){
+		$scope.day = !$scope.day;
+	};
+	$scope.setWeek = function(){
+		$scope.week = !$scope.week;
+	};
+	$scope.showDate = function(){
+		var now = new Date;
+		ddd = now.setDate(now.getDate());
+		console.log(ddd, now);
 	}
 })
 .filter("showDone", function () {
@@ -42,8 +56,9 @@
 		return result; 
 	};
 })
-.filter("showDone", function () {
-	return function(){
-		var date = new Date();
-	}
-});
+// .filter("", function() {
+// 	return function(){
+// 		var now = new Date();
+// 		// return console.log(now.setDate(now.getDay()));
+// 	}
+// });

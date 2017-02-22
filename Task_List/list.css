@@ -2,11 +2,6 @@
 	text-decoration: line-through;
 	color: grey;
 }
-.done-false {
-  /*text-decoration: underline;*/
-  /*color: red;*/
-}
-
 td {
 	max-width: 150px;
 }
@@ -26,4 +21,8 @@ input.date{
 }
 #add-button{
 	float: right !important;
+	margin-top: 10px;
+}
+.btn{
+	display: inline-block;
 }
