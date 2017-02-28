@@ -15,6 +15,7 @@ var App = React.createClass({
   },
   componentWillMount: function() {
     this.fb = new Firebase(rootUrl + 'items/');
+    console.log(this.fb);
     this.bindAsObject(this.fb, 'items');
     this.fb.on('value', this.handleDataLoaded);
   },

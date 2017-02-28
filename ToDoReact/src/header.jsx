@@ -14,9 +14,9 @@ module.exports = React.createClass({
         type="text"
         className="form-control" />
       <input
-      type="date"
-      value = {this.state.date}
-      className="form-control"
+        type="date"
+        value = {this.state.date}
+        className="form-control"
       />
       <span className="input-group-btn">
         <button
